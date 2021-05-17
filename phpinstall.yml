@@ -72,3 +72,16 @@
           src: template/mysql/my.cnf.j2
           dest: /root/.my.cnf
         when: mysql_new_root_pass.changed
+
+#NGINX
+      - name: Install NGINX
+        package:
+          name: nginx
+          state: present
+
+      - name: restart nginx
+        service:
+          name: nginx
+          state: started
+
+...
