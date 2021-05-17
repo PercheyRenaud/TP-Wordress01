@@ -23,10 +23,6 @@
           name: apache2
           state: absent
 
-...
-
-
-
 # MySQL
       - name: Install MySQL
         package:
