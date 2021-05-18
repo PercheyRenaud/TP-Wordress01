@@ -140,7 +140,7 @@
         template:
           src: template/wordpress/wp-database.sql.j2
           dest: /tmp/wp-database.sql
-      when: db_exist.rc > 0
+        when: db_exist.rc > 0
 
 
       - name: Import Wordpress DB
