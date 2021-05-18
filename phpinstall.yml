@@ -113,7 +113,7 @@
           creates: /var/www/wordpress/wp-settings.php
 
 #create db
-      - name: create WordPressmysql database
+      - name: Create Wordpress MySQL database
         mysql_db:
           name: wordpress
           state: present
