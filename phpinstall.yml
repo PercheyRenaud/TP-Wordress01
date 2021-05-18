@@ -125,6 +125,10 @@
           password: bananas
           priv: wordpress.*:ALL
 #db config
+      - name: Create wp-config
+        template:
+          src: template/wordpress/wp-config3.php.j2
+          dest: /var/www/wordpress/wp-config.php
 
       - name: Does the database exist?
         command: mysql -u root wordpress -e "SELECT ID FROM wordpress.wp_users LIMIT 1;"
@@ -136,7 +140,8 @@
         template:
           src: template/wordpress/wp-database.sql.j2
           dest: /tmp/wp-database.sql
-        when: db_exist.rc > 0
+      when: db_exist.rc > 0
+
 
       - name: Import Wordpress DB
         mysql_db:
