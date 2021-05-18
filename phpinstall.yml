@@ -127,7 +127,7 @@
 #db config
       - name: Create wp-config
         template:
-          src: template/wordpress/wp-config.php.j2
+          src: template/wordpress/wp-config2.php.j2
           dest: /var/www/wordpress/wp-config.php
 
 #HANDLERS
