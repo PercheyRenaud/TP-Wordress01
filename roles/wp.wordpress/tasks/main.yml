@@ -35,7 +35,7 @@
 #db config
 - name: Create wp-config
   template:
-    src: template/wordpress/wp-config3.php.j2
+    src: templates/wp-config3.php.j2
     dest: /var/www/wordpress/wp-config.php
 
 - name: Does the database exist?
@@ -46,7 +46,7 @@
 
 - name: Copy Wordpress DB
   template:
-    src: template/wordpress/wp-database.sql.j2
+    src: templates/wp-database.sql.j2
     dest: /tmp/wp-database.sql
   when: db_exist.rc > 0
 
