@@ -79,10 +79,6 @@
           name: nginx
           state: present
 
-      - name: restart nginx
-        service:
-          name: nginx
-          state: started
 #nginx config
       - name: create nginx config
         template:
@@ -90,7 +86,7 @@
           dest: /etc/nginx/sites-available/default
         notify: restart nginx
 
-
+#HANDLERS
     handlers:
       - name:  restart nginx
         service:
