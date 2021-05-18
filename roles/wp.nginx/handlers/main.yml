@@ -1,6 +1,5 @@
 ---
 # handlers file for wp.nginx
-#HANDLERS
 handlers:
   - name: restart nginx
     service:
