@@ -92,11 +92,6 @@
           dest: /etc/nginx/sites-available/default
         notify: restart nginx
 
-      - name: create project folder
-        file:
-          path: /var/www/book.example.com
-          state: directory
-
 #wordpress
       - name: Get WordPress checksum
         uri:
@@ -117,7 +112,18 @@
           remote_src: yes
           creates: /var/www/wordpress/wp-settings.php
 
+#create db
+      - name: create WordPressmysql database
+        mysql_db:
+          name: wordpress
+          state: present
 
+      - name: Create WordPress mysql
+      mysql_user:
+        name: WordPress
+        host: localhost
+        password: bananas
+        priv: wordpress.*:ALL
 
 #HANDLERS
     handlers:
