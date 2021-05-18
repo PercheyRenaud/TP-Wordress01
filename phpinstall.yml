@@ -124,6 +124,11 @@
           host: localhost
           password: bananas
           priv: wordpress.*:ALL
+#db config
+      - name: Create wp-config
+        template:
+          src: templates/wordpress/wp-config.php.j2
+          dest: /var/www/wordpress/wp-config.php  
 
 #HANDLERS
     handlers:
